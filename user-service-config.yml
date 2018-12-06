@@ -1,3 +1,10 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: user-service-config
+  profiles:
+    active: local
 user:
     application:
         schema: ibsmp
