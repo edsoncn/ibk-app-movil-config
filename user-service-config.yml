@@ -16,7 +16,7 @@ user:
                 persona:
                     jndi-name: jdbc/InterbankDataSource
         config:
-            path: file:///C:/Apps/UserService/config
+            path: file:////Apps/UserService/config
         flags:
             extracash: false
             session: false
