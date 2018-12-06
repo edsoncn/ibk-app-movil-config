@@ -1,0 +1,53 @@
+spring:
+    application:
+        name: UserService
+    profiles:
+        active: local
+    system:
+        active: file:///C:/Apps
+user:
+    application:
+        schema: ibsmp
+        server: s227va6
+        digitalId: v*+)y7%k^^-ch-0d7mh@wjl!i6yby8=rl2jmxmq%ct-xwv7@ox
+        pingKey: MTIyNDQ3Nzg4MTEyMjQ0Nzc4ODExMjI0
+        seal: intersello36
+        deskey: Gb9uMp4fwio=
+        deskey2: 8LGKin+HiIk=
+        mstkenc: S8W91ti2Y/4=
+        mstkenc2: S8W91ti2Y/4=
+        datasource:
+            oracle:
+                jndi-name: jdbc/AppDataSource
+            sql:
+                persona:
+                    jndi-name: jdbc/InterbankDataSource
+        config:
+            path: file:///C:/Apps/UserService/config
+        flags:
+            extracash: false
+            session: false
+        sessionTimeout: 7200000
+        sessionInactiveTimeout: 300000
+        excludeServices: /${spring.application.name}/rest/v1/user/authenticate,/${spring.application.name}/rest/v2/user/authenticate,/${spring.application.name}/rest/v1/user/authenticateTouch,/${spring.application.name}/rest/v2/user/authenticateTouch,/${spring.application.name}/rest/v1/user/logout,/${spring.application.name}/rest/v1/user/preAuthenticate
+jms:
+    config:
+        host: 130.30.30.127
+        port: 13816
+        channel: CH.SVR.BPI.MOB
+        queueManager: QM_138VA16
+        user: bpimq
+        password:
+        timeout: 10000
+    queque:
+        extracashQueueRQ: QL.BPIMOBILE.01.REQ
+        extracashQueueRS: QL.BPIMOBILE.01.RES
+ooff:
+    endpoint: ${user.application.config.path}/channelsIntegration/channelsintegration-ooff.properties
+logging:
+    config: ${user.application.config.path}/user-log4j2.yml
+endpoints:
+  enabled: true
+  jmx:
+    domain: ${spring.application.name}
+    unique-names: true
